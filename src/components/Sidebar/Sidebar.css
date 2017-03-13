@@ -1,0 +1,8 @@
+.logo {
+  margin: 32px 0;
+  height: 94px;
+}
+
+.logo .brand-logo:hover {
+  background: transparent;
+}

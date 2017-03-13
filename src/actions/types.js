@@ -1,0 +1,1 @@
+export const SECTION_SWITCH = 'SECTION_SWITCH'
