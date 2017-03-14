@@ -10,11 +10,17 @@ const sections = [
   'Dimensions'
 ]
 
-const sectionList = sections.map((section, index) =>
-  <li key={section} className="bold"><a href="#" data-section={index} className="waves-effect waves-teal">{section}</a></li>
-)
-
 export class Sidebar extends Component {
+  getList () {
+    return sections.map((section, index) =>
+      <li key={section} className={`bold ${this.props.activeSection === index && 'active'}`}>
+        <a onClick={() => this.props.sectionSwitch(index)} href="#" data-section={index} className="waves-effect waves-teal">
+          {section}
+        </a>
+      </li>
+    )
+  }
+
   render () {
     return <header className="side-nav fixed">
       <div className="logo">
@@ -23,10 +29,8 @@ export class Sidebar extends Component {
         </a>
       </div>
 
-      {this.props.activeSection}
-
       <ul className="side-nav-links">
-        {sectionList}
+        {this.getList()}
       </ul>
     </header>
   }

@@ -21,8 +21,14 @@ describe('sidebar', () => {
 
     expect(enzymeWrapper.contains('header')).toBeDefined()
 
-    expect(enzymeWrapper.find('ul').hasClass('side-nav')).toBe(true)
+    expect(enzymeWrapper.find('ul').hasClass('side-nav-links')).toBe(true)
 
     expect(enzymeWrapper.find('a').first().prop('data-section')).toBe('0')
+  })
+
+  it('should indicate the current section', () => {
+    const { enzymeWrapper } = setup()
+    enzymeWrapper.setProps({activeSection: 0})
+    expect(enzymeWrapper.find('li').first().hasClass('active')).toBe(true)
   })
 })
